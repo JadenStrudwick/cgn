@@ -7,6 +7,7 @@ use bincode::serialize_into;
 use bit_vec::BitVec;
 use flate2::{read::ZlibDecoder, write::ZlibEncoder, Compression};
 
+
 /// Accepts a module that contains the following and exports them to WASM string versions.
 /// * compress_pgn_data(&PgnData) -> Result&lt;BitVec&gt;
 /// * decompress_pgn_data(&BitVec) -> Result&lt;PgnData&gt;
@@ -45,6 +46,8 @@ macro_rules! export_to_wasm {
         }
     };
 }
+
+pub(crate) use export_to_wasm;
 
 /// Converts an i8 to a bit vector of length 8
 pub fn i8_to_bit_vec(i: i8) -> BitVec {
