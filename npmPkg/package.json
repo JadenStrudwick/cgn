@@ -1,0 +1,32 @@
+{
+ "name": "cgn-js",
+  "collaborators": [
+    "Jaden Strudwick"
+  ],
+  "description": "A library for optimally compressing chess games in PGN format.",
+  "version": "0.1.4",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JadenStrudwick/cgn/"
+  },
+  "files": [
+    "cgn_bg.wasm",
+    "cgn.js",
+    "cgn_bg.js",
+    "cgn.d.ts"
+  ],
+  "module": "cgn.js",
+  "types": "cgn.d.ts",
+  "sideEffects": [
+    "./cgn.js",
+    "./snippets/*"
+  ],
+  "keywords": [
+    "chess",
+    "pgn",
+    "compression",
+    "wasm",
+    "huffman"
+  ]
+}
