@@ -4,7 +4,7 @@ mod pgn_vistor;
 mod san_plus_wrapper;
 pub use san_plus_wrapper::SanPlusWrapper;
 
-#[derive(Clone, Debug, serde::Serialize, serde::Deserialize)]
+#[derive(Clone, Debug, serde::Serialize, serde::Deserialize, Eq, PartialEq, Hash)]
 /// PGN headers struct that holds the headers of a PGN game.
 /// Only stores the data required for PGN 'reduced export format'.
 pub struct PgnHeaders {
@@ -50,7 +50,7 @@ impl Default for PgnHeaders {
     }
 }
 
-#[derive(Clone, Debug, serde::Serialize, serde::Deserialize)]
+#[derive(Clone, Debug, serde::Serialize, serde::Deserialize, Eq, PartialEq, Hash)]
 /// PGN data struct that holds the headers and moves of a PGN game.
 /// Only stores the data required for PGN 'reduced export format'.
 ///
