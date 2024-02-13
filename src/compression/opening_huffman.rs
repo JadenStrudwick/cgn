@@ -222,7 +222,7 @@ fn decompress_moves_custom(
     // decode the rest of the moves after the opening
     for i in tree.decoder(new_move_bits, 256) {
         let legal_moves = generate_moves(&pos);
-        let index: usize = i.try_into()?;
+        let index: usize = i.into();
         let san_move = legal_moves.get(index).ok_or(anyhow!(
             "GameDecoder::decode_all() - Failed to decode index {} into a move",
             index
@@ -360,7 +360,7 @@ hxg4 54. fxg4 Nh6 55. Nc3 Nxg4 56. Ne4 Kd5 57. Nc3+ Kc6 58. Ne4 1/2-1/2"#;
         let mut pgn = PgnData::from_str(PGN_STR_EXAMPLE).unwrap();
         pgn.clear_headers();
         let compressed_pgn = compress_pgn_data(&pgn).unwrap();
-        assert_eq!(compressed_pgn[0], true);
+        assert!(compressed_pgn[0]);
     }
 
     #[test]
@@ -368,7 +368,7 @@ hxg4 54. fxg4 Nh6 55. Nc3 Nxg4 56. Ne4 Kd5 57. Nc3+ Kc6 58. Ne4 1/2-1/2"#;
     fn first_bit_one_when_full_headers() {
         let pgn = PgnData::from_str(PGN_STR_EXAMPLE).unwrap();
         let compressed_pgn = compress_pgn_data(&pgn).unwrap();
-        assert_eq!(compressed_pgn[0], false);
+        assert!(!compressed_pgn[0]);
     }
 
     #[test]

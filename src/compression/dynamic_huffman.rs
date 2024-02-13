@@ -178,7 +178,7 @@ fn decompress_moves_custom(
 
         // get the legal moves for the current position and decode the index into a move
         let legal_moves = generate_moves(&pos);
-        let index: usize = i.try_into()?;
+        let index: usize = i.into();
         let san_move = legal_moves.get(index).ok_or(anyhow!(
             "decompress_moves_custom() - Failed to decode index {} into a move",
             index

@@ -83,8 +83,8 @@ fn pst_score(piece: Piece, square: Square) -> Result<PieceScore> {
     } else {
         square
     };
-    let role_index: usize = piece.role.try_into()?;
-    let sq_index: usize = sq.try_into()?;
+    let role_index: usize = piece.role.into();
+    let sq_index: usize = sq.into();
     Ok(PieceScore::from(LICHESS_TABLES[role_index - 1][sq_index]))
 }
 

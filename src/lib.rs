@@ -1,5 +1,5 @@
 //! # CGN (Compressed Game Notation)
-//! 
+//!
 //! This library provides a set of compression algorithms for compressing PGN (Portable Game Notation) data. The library also provides a set of data structures for storing PGN data in a reduced format.
 //!
 //! ## Compression Algorithms (High to Low Compression Ratios --- Low to High Speed)
@@ -12,9 +12,9 @@
 //! * `PgnData` - A struct that holds the headers and moves of a PGN game. Only stores the data required for PGN 'reduced export format'.
 //! * `PgnHeaders` - A struct that holds the headers of a PGN game. Only stores the data required for PGN 'reduced export format'.
 //! * `SanPlusWrapper` - A wrapper struct that holds a `SanPlus` struct. This is used to implement the serialize and deserialize traits on the `SanPlus` struct.
-//! 
+//!
 //! ## Example Usage
-//! 
+//!
 //! ```
 //! use cgn::pgn_data::PgnData;
 //! use cgn::compression::dynamic_huffman::{compress_pgn_data, decompress_pgn_data, dynamic_huffman_compress_pgn_str, dynamic_huffman_decompress_pgn_str};

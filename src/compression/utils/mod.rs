@@ -7,7 +7,6 @@ use bincode::serialize_into;
 use bit_vec::BitVec;
 use flate2::{read::ZlibDecoder, write::ZlibEncoder, Compression};
 
-
 /// Accepts a module that contains the following and exports them to WASM string versions.
 /// * compress_pgn_data(&PgnData) -> Result&lt;BitVec&gt;
 /// * decompress_pgn_data(&BitVec) -> Result&lt;PgnData&gt;

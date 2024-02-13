@@ -247,7 +247,7 @@ Qxb7+ Kf8 48. Qf7# 1-0"#;
     fn ignores_additional_headers() {
         let pgn_str = PGN_STR_EXAMPLE_EXTRA_HEADER;
         let pgn_data = PgnData::from_str(pgn_str).unwrap();
-        assert!(pgn_data.to_string().find("FOOBAR").is_none());
+        assert!(!pgn_data.to_string().contains("FOOBAR"));
     }
 
     #[test]

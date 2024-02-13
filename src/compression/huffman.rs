@@ -111,7 +111,7 @@ fn decompress_moves(move_bits: &BitVec) -> Result<Vec<SanPlusWrapper>> {
     // decode the moves from the bit vector
     for i in tree.decoder(move_bits, 256) {
         let legal_moves = generate_moves(&pos);
-        let index: usize = i.try_into()?;
+        let index: usize = i.into();
 
         // get the move from the index
         let san_move = legal_moves.get(index).ok_or(anyhow!(
@@ -206,7 +206,7 @@ Qxb7+ Kf8 48. Qf7# 1-0"#;
         let mut pgn = PgnData::from_str(PGN_STR_EXAMPLE).unwrap();
         pgn.clear_headers();
         let compressed_pgn = compress_pgn_data(&pgn).unwrap();
-        assert_eq!(compressed_pgn[0], true);
+        assert!(compressed_pgn[0]);
     }
 
     #[test]
@@ -214,7 +214,7 @@ Qxb7+ Kf8 48. Qf7# 1-0"#;
     fn first_bit_one_when_full_headers() {
         let pgn = PgnData::from_str(PGN_STR_EXAMPLE).unwrap();
         let compressed_pgn = compress_pgn_data(&pgn).unwrap();
-        assert_eq!(compressed_pgn[0], false);
+        assert!(!compressed_pgn[0]);
     }
 
     #[test]
