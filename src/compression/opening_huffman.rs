@@ -109,7 +109,7 @@ fn compress_moves_custom(
             ))?
             .clone();
 
-        // add false (1 bit) to the bit vector and then the compressed opening (12 bits)
+        // add false (1 bit) to the bit vector and then the compressed opening (9 bits)
         move_bits.push(false);
         move_bits.append(&mut longest_match_bits);
 
