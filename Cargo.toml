@@ -1,6 +1,6 @@
 [package]
 name = "cgn"
-version = "0.1.4"
+version = "0.1.5"
 edition = "2021"
 authors = ["Jaden Strudwick"]
 description = "A library for optimally compressing chess games in PGN format."
